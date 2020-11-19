@@ -1,31 +1,4 @@
-import { fetch } from './csrf';
 import { REMOVE_USER, SET_USER } from '../actions/sessionActions';
-
-export const setUser = user => {
-	return {
-		type: SET_USER,
-		payload: user,
-	};
-};
-
-export const removeUser = () => {
-	return {
-		type: REMOVE_USER,
-	};
-};
-
-export const login = user => async dispatch => {
-	const { credential, password } = user;
-	const response = await fetch('/api/session', {
-		method: 'POST',
-		body: JSON.stringify({
-			credential,
-			password,
-		}),
-	});
-	dispatch(setUser(response.data.user));
-	return response;
-};
 
 const initialState = { user: null };
 

@@ -1,1 +1,13 @@
 /* TODO Add site wide styles */
+html {
+	height: 100%;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100%;
+	font-family: 'lato', sans-serif;
+	background-color: #ffffff;
+}

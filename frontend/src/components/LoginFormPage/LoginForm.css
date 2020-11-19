@@ -1,0 +1,23 @@
+.login-wrapper {
+	display: flex;
+	justify-content: center;
+	margin: 10px auto;
+	width: 300px;
+	background-color: aqua;
+	border-radius: 10px;
+	padding: 25px;
+}
+
+.login-form-container {
+	/* style later */
+}
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+}
+
+form input {
+	border: none;
+	border-radius: 4px;
+}
