@@ -11,8 +11,6 @@ function LoginFormPage() {
 	const [password, setPassword] = useState('');
 	const [errors, setErrors] = useState([]);
 
-	if (sessionUser) return <Redirect to='/' />;
-
 	const handleSubmit = e => {
 		e.preventDefault();
 		setErrors([]);
@@ -21,9 +19,11 @@ function LoginFormPage() {
 		});
 	};
 
+	if (sessionUser) return <Redirect to='/' />;
+
 	return (
 		<>
-			<div className='login-wrapper'>
+			<div className='login-wrapper rounded-corners'>
 				<form className='login-form-container' onSubmit={handleSubmit}>
 					<ul className='login-error'>
 						{errors.map((error, idx) => (
