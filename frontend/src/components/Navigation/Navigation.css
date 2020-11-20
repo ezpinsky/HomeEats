@@ -1,0 +1,45 @@
+nav {
+	width: 100%;
+	background-color: turquoise;
+	position: absolute;
+	box-shadow: 0px 2px 8px teal;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+nav button {
+	border: none;
+	background-color: white;
+}
+
+nav li {
+	list-style-type: none;
+}
+
+.profile-dropdown {
+	position: absolute;
+	top: 43px;
+	left: 14px;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	font-weight: 500;
+	background-color: turquoise;
+	max-width: 100px;
+	box-shadow: 0 4px 2px -2px teal;
+}
+
+.profile-dropdown li:hover {
+	background-color: white;
+	color: teal;
+}
+
+.profile-button-container {
+	position: relative;
+	width: 100px;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: row-reverse;
+}

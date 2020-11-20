@@ -48,3 +48,11 @@ export const restoreUser = () => async dispatch => {
 	dispatch(setUser(res.data.user));
 	return res;
 };
+
+export const signOutUser = () => async dispatch => {
+	const res = await fetch('/api/session', {
+		method: 'DELETE',
+	});
+	dispatch(removeUser());
+	return res;
+};
