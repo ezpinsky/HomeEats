@@ -31,7 +31,7 @@ function LoginFormPage() {
 						))}
 					</ul>
 					<div className='form-field'>
-						<label>Username or Email</label>
+						<label>Email</label>
 						<input
 							type='text'
 							value={credential}

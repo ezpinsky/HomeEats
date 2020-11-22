@@ -30,31 +30,6 @@ export default function ProfileButton({ user }) {
 
 	return (
 		<>
-			{/* <div class='dropdown'>
-				<button onClick={openMenu} className='dropbtn'>
-					<div
-						style={{
-							'font-size': '20px',
-							'color': 'turquoise',
-						}}
-					>
-						<i className='fas fa-user-circle' />
-						Home
-					</div>
-				</button>
-				<div className='dropdown-content'>
-					{showMenu && (
-						<ul>
-							<li>{user.username}</li>
-							<li>{user.email}</li>
-							<li>
-								<button onClick={signOut}>Log Out</button>
-							</li>
-						</ul>
-					)}
-				</div>
-			</div> */}
-
 			<div>
 				<button onClick={openMenu}>
 					<div
@@ -69,7 +44,7 @@ export default function ProfileButton({ user }) {
 			</div>
 			{showMenu && (
 				<ul className='profile-dropdown'>
-					<li>{user.username}</li>
+					<li>{user.first_name}</li>
 					<li>{user.email}</li>
 					<li>
 						<button onClick={signOut}>Log Out</button>

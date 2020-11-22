@@ -8,7 +8,9 @@ function SignupFormPage() {
 	const dispatch = useDispatch();
 	const sessionUser = useSelector(state => state.session.user);
 	const [email, setEmail] = useState('');
-	const [username, setUsername] = useState('');
+	const [firstName, setFirstname] = useState('');
+	const [lastName, setLastname] = useState('');
+	const [zip, setZip] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const [errors, setErrors] = useState([]);
@@ -21,9 +23,11 @@ function SignupFormPage() {
 		e.preventDefault();
 		if (password === confirmPassword) {
 			setErrors([]);
-			return dispatch(sessionActions.signup({ email, username, password })).catch(res => {
-				if (res.data && res.data.errors) setErrors(res.data.errors);
-			});
+			return dispatch(sessionActions.signup({ email, first_name, last_name, zip, password })).catch(
+				res => {
+					if (res.data && res.data.errors) setErrors(res.data.errors);
+				}
+			);
 		}
 		return setErrors(['Confirm Password field must be the same as the Password field']);
 	};
@@ -39,17 +43,30 @@ function SignupFormPage() {
 					))}
 				</ul>
 				<label>
+					First Name
+					<input
+						type='text'
+						value={firstName}
+						onChange={e => setFirstname(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
+					Last Name
+					<input
+						type='text'
+						value={lastName}
+						onChange={e => setLastname(e.target.value)}
+						required
+					/>
+				</label>
+				<label>
 					Email
 					<input type='text' value={email} onChange={e => setEmail(e.target.value)} required />
 				</label>
 				<label>
-					Username
-					<input
-						type='text'
-						value={username}
-						onChange={e => setUsername(e.target.value)}
-						required
-					/>
+					Zip
+					<input type='text' value={zip} onChange={e => setZip(e.target.value)} required />
 				</label>
 				<label>
 					Password
