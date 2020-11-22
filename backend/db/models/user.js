@@ -5,8 +5,8 @@ const bcrypt = require('bcryptjs');
 module.exports = (sequelize, DataTypes) => {
 	class User extends Model {
 		toSafeObject() {
-			const { id, last_name, first_name, email } = this; // context will be the User instance
-			return { id, first_name, last_name, email };
+			const { id, last_name, first_name, email, zip } = this; // context will be the User instance
+			return { id, first_name, last_name, email, zip };
 		}
 		validatePassword(password) {
 			return bcrypt.compareSync(password, this.hashed_pass.toString());
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
 				return await User.scope('currentUser').findByPk(user.id);
 			}
 		}
-		static async signup({ first_name, last_name, email, password, zip }) {
+		static async signup({ first_name, last_name, email, zip, password }) {
 			const hashed_pass = bcrypt.hashSync(password);
 			const user = await User.create({
 				first_name,
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 				validate: {
-					len: [0, 30],
+					len: [2, 50],
 					isNotEmail(value) {
 						if (Validator.isEmail(value)) {
 							throw new Error('Cannot be an email.');
@@ -60,7 +60,7 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING,
 				allowNull: false,
 				validate: {
-					len: [0, 30],
+					len: [2, 50],
 					isNotEmail(value) {
 						if (Validator.isEmail(value)) {
 							throw new Error('Cannot be an email.');
@@ -75,6 +75,11 @@ module.exports = (sequelize, DataTypes) => {
 					len: [3, 256],
 				},
 			},
+			zip: {
+				type: DataTypes.STRING(5),
+				allowNull: false,
+				validate: { notEmpty: true, len: [5, 5] },
+			},
 			hashed_pass: {
 				type: DataTypes.STRING.BINARY,
 				allowNull: false,
@@ -88,7 +93,7 @@ module.exports = (sequelize, DataTypes) => {
 			modelName: 'User',
 			defaultScope: {
 				attributes: {
-					exclude: ['hashed_pass', 'email', 'createdAt', 'updatedAt'],
+					exclude: ['hashed_pass', 'email', 'zip', 'createdAt', 'updatedAt'],
 				},
 			},
 			scopes: {

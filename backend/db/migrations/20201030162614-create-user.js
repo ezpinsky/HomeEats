@@ -11,26 +11,24 @@ module.exports = {
 			first_name: {
 				type: Sequelize.STRING(30),
 				allowNull: false,
-				unique: true,
 			},
 			last_name: {
 				type: Sequelize.STRING(30),
 				allowNull: false,
-				unique: true,
 			},
 			email: {
 				type: Sequelize.STRING(256),
 				allowNull: false,
 				unique: true,
 			},
-			hashed_pass: {
-				type: Sequelize.STRING.BINARY,
-				allowNull: false,
-			},
 			zip: {
 				type: Sequelize.STRING(5),
 				allowNull: false,
 				validate: { notEmpty: true, len: [5, 5] },
+			},
+			hashed_pass: {
+				type: Sequelize.STRING.BINARY,
+				allowNull: false,
 			},
 			createdAt: {
 				allowNull: false,
