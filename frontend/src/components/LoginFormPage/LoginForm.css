@@ -1,11 +1,11 @@
 .login-wrapper {
-	display: flex;
+	/* display: flex;
 	justify-content: center;
 	margin: 10px auto;
 	width: 300px;
 	background-color: aqua;
 	/* border-radius: 10px; */
-	padding: 25px;
+	/* padding: 25px; */
 }
 
 .login-form-container {
@@ -18,6 +18,10 @@
 }
 
 form input {
-	border: none;
+	outline: 0;
+	border-width: 0 0 1px;
 	border-radius: 4px;
+	border-color: white;
+	background-color: #427c4f;
+	color: white;
 }

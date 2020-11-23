@@ -1,0 +1,23 @@
+body {
+	font-family: 'Sen', sans-serif;
+}
+.splash-container {
+	display: flex;
+}
+
+.splash-image {
+	width: auto;
+	height: 100vh;
+}
+
+.form-container {
+	min-width: 480px;
+	height: auto;
+	background-color: white;
+	border: 5px solid #427c4f;
+	box-sizing: border-box;
+}
+
+.logo-container {
+	text-align: center;
+}

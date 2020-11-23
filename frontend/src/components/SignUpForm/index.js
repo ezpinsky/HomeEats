@@ -6,18 +6,15 @@ import * as sessionActions from '../../actions/sessionActions';
 
 function SignupFormPage() {
 	const dispatch = useDispatch();
-	const sessionUser = useSelector(state => state.session.user);
 	const [email, setEmail] = useState('');
-	const [firstName, setFirstname] = useState('');
-	const [lastName, setLastname] = useState('');
+	const [first_name, setFirstname] = useState('');
+	const [last_name, setLastname] = useState('');
 	const [zip, setZip] = useState('');
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const [errors, setErrors] = useState([]);
 
-	useEffect(() => {
-		console.log('mounted');
-	}, []);
+	const sessionUser = useSelector(state => state.session.user);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -32,8 +29,6 @@ function SignupFormPage() {
 		return setErrors(['Confirm Password field must be the same as the Password field']);
 	};
 
-	if (sessionUser) return <Redirect to='/' />;
-
 	return (
 		<div className='login-wrapper'>
 			<form onSubmit={handleSubmit}>
@@ -46,7 +41,7 @@ function SignupFormPage() {
 					First Name
 					<input
 						type='text'
-						value={firstName}
+						value={first_name}
 						onChange={e => setFirstname(e.target.value)}
 						required
 					/>
@@ -55,7 +50,7 @@ function SignupFormPage() {
 					Last Name
 					<input
 						type='text'
-						value={lastName}
+						value={last_name}
 						onChange={e => setLastname(e.target.value)}
 						required
 					/>

@@ -44,7 +44,7 @@ export default function ProfileButton({ user }) {
 			</div>
 			{showMenu && (
 				<ul className='profile-dropdown'>
-					<li>{user.first_name}</li>
+					<li>{`${user.first_name}`}</li>
 					<li>{user.email}</li>
 					<li>
 						<button onClick={signOut}>Log Out</button>

@@ -2,7 +2,8 @@
 body {
 	margin: 0px;
 	min-height: 100%;
-	font-family: 'Mukta', sans-serif;
+	font-family: 'Sen', sans-serif;
+	font-family: 'Signika', sans-serif;
 	background-color: #ffffff;
 }
 
@@ -46,10 +47,18 @@ main {
  */
 
 h1 {
-	font-size: 2em;
-	margin: 0.67em 0;
+	font-size: 4em;
+	margin: 20px 0 0 0;
+	font-family: 'Signika';
+	font-weight: 400;
 }
 
+h2 {
+	font-size: 1.6em;
+	margin: 13px 0 0 0;
+	font-weight: 100;
+	font-family: 'Sen';
+}
 /* Grouping content
    ========================================================================== */
 

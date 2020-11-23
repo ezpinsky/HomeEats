@@ -5,6 +5,7 @@ import LoginFormPage from './components/LoginFormPage';
 import * as sessionActions from './actions/sessionActions';
 import SignupForm from './components/SignUpForm';
 import Navigation from './components/Navigation';
+import SplashPage from './components/SplashPage';
 
 function App() {
 	const dispatch = useDispatch();
@@ -13,14 +14,16 @@ function App() {
 	useEffect(() => {
 		dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
 	}, [dispatch]);
+	console.log(setIsLoaded);
 
 	return (
 		<>
-			<Navigation isLoaded={isLoaded} />
+			{/* <Navigation isLoaded={isLoaded} className={`hidden`} /> */}
 			{isLoaded && (
 				<Switch>
-					<Route path='/signin' component={LoginFormPage} />
-					<Route path='/signup' component={SignupForm} />
+					<Route path='/' component={SplashPage}></Route>
+					{/* <Route path='/signin' component={LoginFormPage} />
+					<Route path='/signup' component={SignupForm} /> */}
 				</Switch>
 			)}
 		</>
