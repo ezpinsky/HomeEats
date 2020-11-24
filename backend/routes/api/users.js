@@ -31,11 +31,11 @@ const validateSignup = [
 		.exists({ checkFalsy: true })
 		.withMessage('Please provide a zip code')
 		.isLength({ min: 5, max: 5 })
-		.withMessage('Zip code must be five numbers in length')
+		.withMessage('Zip code must be five numbers in length.')
 		.custom(value => {
 			const reg = /^[\d-]+$/;
 			if (!value.match(reg)) {
-				throw new Error('Zip code must only contain numbers');
+				throw new Error('Zip code must only contain numbers.');
 			}
 			return true;
 		}),
