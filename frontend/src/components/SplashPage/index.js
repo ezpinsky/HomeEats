@@ -1,8 +1,11 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import './SplashPage.css';
-import { LoginForm } from '../LoginFormPage';
-import { SignUpForm } from '../SignUpForm';
+import './splash-image.jpg';
+import './cutting-board.png';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import LoginForm from '../LoginFormPage';
+import SignUpForm from '../SignUpForm';
 
 export default function SplashPage() {
 	const sessionUser = useSelector(state => state.session.user);
@@ -27,21 +30,18 @@ export default function SplashPage() {
 	}
 	return (
 		<div className='splash-container'>
-			<img
-				className='splash-image'
-				src={
-					'https://images.pexels.com/photos/326281/pexels-photo-326281.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
-				}
-				alt='plate-of-food-on-wood'
-			/>
-			<div className='form-container'>
-				<div className='logo-container'>
-					<h1>HomeEats</h1>
-					<h2>where food lives</h2>
+			<div className='form-outer-container'>
+				<div className='form-container'>
+					<div className='logo-container'>
+						<h1>HomeEats</h1>
+						<h2>where food lives</h2>
+					</div>
+					{formFields}
+					<hr className='splash-line'></hr>
+					<button onClick={handleClick} className='alt-auth-button'>
+						{splashMessage}
+					</button>
 				</div>
-				{formFields}
-				<hr className='splash-line'></hr>
-				<button onClick={handleClick}>{splashMessage}</button>
 			</div>
 		</div>
 	);

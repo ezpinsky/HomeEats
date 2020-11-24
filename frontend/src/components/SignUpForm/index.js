@@ -1,7 +1,5 @@
-import './SignUpForm.css';
-import { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions';
 
 function SignupFormPage() {
@@ -13,8 +11,6 @@ function SignupFormPage() {
 	const [password, setPassword] = useState('');
 	const [confirmPassword, setConfirmPassword] = useState('');
 	const [errors, setErrors] = useState([]);
-
-	const sessionUser = useSelector(state => state.session.user);
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -29,59 +25,72 @@ function SignupFormPage() {
 		return setErrors(['Confirm Password field must be the same as the Password field']);
 	};
 
+	let errorList;
+	if (errors.length > 0) {
+		errorList = (
+			<div className='login-error'>
+				{errors.map((error, idx) => (
+					<div key={idx} className='error-message'>
+						{error}
+					</div>
+				))}
+			</div>
+		);
+	}
+
 	return (
-		<div className='login-wrapper'>
-			<form onSubmit={handleSubmit}>
-				<ul>
-					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
-					))}
-				</ul>
-				<label>
-					First Name
-					<input
-						type='text'
-						value={first_name}
-						onChange={e => setFirstname(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Last Name
-					<input
-						type='text'
-						value={last_name}
-						onChange={e => setLastname(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Email
-					<input type='text' value={email} onChange={e => setEmail(e.target.value)} required />
-				</label>
-				<label>
-					Zip
-					<input type='text' value={zip} onChange={e => setZip(e.target.value)} required />
-				</label>
-				<label>
-					Password
-					<input
-						type='password'
-						value={password}
-						onChange={e => setPassword(e.target.value)}
-						required
-					/>
-				</label>
-				<label>
-					Confirm Password
-					<input
-						type='password'
-						value={confirmPassword}
-						onChange={e => setConfirmPassword(e.target.value)}
-						required
-					/>
-				</label>
-				<button type='submit'>Sign Up</button>
+		<div className='form-fields-container'>
+			<form className='login-form-container' onSubmit={handleSubmit}>
+				{errorList}
+				<input
+					type='text'
+					value={first_name}
+					onChange={e => setFirstname(e.target.value)}
+					placeholder='first name'
+					required
+				/>
+				<input
+					type='text'
+					value={last_name}
+					onChange={e => setLastname(e.target.value)}
+					placeholder='last name'
+					required
+				/>
+				<input
+					type='text'
+					value={email}
+					onChange={e => setEmail(e.target.value)}
+					placeholder='email'
+					required
+				/>
+				<input
+					type='text'
+					value={zip}
+					onChange={e => setZip(e.target.value)}
+					placeholder='zip'
+					required
+				/>
+				<input
+					type='password'
+					value={password}
+					onChange={e => setPassword(e.target.value)}
+					placeholder='password'
+					required
+				/>
+				<input
+					type='password'
+					value={confirmPassword}
+					onChange={e => setConfirmPassword(e.target.value)}
+					placeholder='confirm password'
+					required
+				/>
+				<div className='signup-demo-buttons-container'>
+					<div>
+						<button className='auth-button' type='submit'>
+							Sign Up
+						</button>
+					</div>
+				</div>
 			</form>
 		</div>
 	);

@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React, { useReducer, useState } from 'react';
 import * as sessionActions from '../../actions/sessionActions';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
-import './LoginForm.css';
+import { useDispatch } from 'react-redux';
 
 function LoginForm() {
 	const dispatch = useDispatch();
-	const sessionUser = useSelector(state => state.session.user);
 	const [credential, setCredential] = useState('');
 	const [password, setPassword] = useState('');
 	const [errors, setErrors] = useState([]);
@@ -19,38 +16,63 @@ function LoginForm() {
 		});
 	};
 
-	if (sessionUser) return <Redirect to='/' />;
+	const handleDemoSubmit = e => {
+		e.preventDefault();
+		return dispatch(
+			sessionActions.login({ credential: 'demo@user.io', password: 'password' })
+		).catch(res => {
+			if (res.data && res.data.errors) setErrors(res.data.errors);
+		});
+	};
+
+	let errorList;
+	if (errors.length > 0) {
+		errorList = (
+			<div className='login-error'>
+				{errors.map((error, idx) => (
+					<div key={idx} className='error-message'>
+						{error}
+					</div>
+				))}
+			</div>
+		);
+	}
 
 	return (
 		<>
-			<div className='login-wrapper rounded-corners'>
+			<div className='form-fields-container'>
 				<form className='login-form-container' onSubmit={handleSubmit}>
-					<ul className='login-error'>
-						{errors.map((error, idx) => (
-							<li key={idx}>{error}</li>
-						))}
-					</ul>
+					{errorList}
 					<div className='form-field'>
-						<label>Email</label>
 						<input
 							type='text'
 							value={credential}
 							onChange={e => setCredential(e.target.value)}
+							placeholder='email'
 							required
 						/>
 					</div>
 					<div className='form-field'>
-						<label>Password</label>
 						<input
 							type='password'
 							value={password}
 							onChange={e => setPassword(e.target.value)}
+							placeholder='password'
 							required
 						/>
 					</div>
-					<button className='login-button' type='submit'>
-						Log In
-					</button>
+					<div className='login-demo-buttons-container'>
+						<div>
+							<button className='auth-button' type='submit'>
+								Log In
+							</button>
+						</div>
+						<div>
+							<button className='auth-button' type='submit' onClick={handleDemoSubmit}>
+								Demo
+							</button>
+						</div>
+					</div>
 				</form>
 			</div>
 		</>
