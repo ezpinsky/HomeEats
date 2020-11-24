@@ -12,7 +12,7 @@ _By EzraPinsky_
   - [Backend Overview](#backend-overview)
     - [Authentication and Application Security](#authentication-and-application-security)
     - [Relational Database Design](#relational-database-design)
-  - [Conclusion & Next Steps](#conclusion--next-steps)
+  - [Conclusion & Stretch Goals](#conclusion--next-steps)
 
 ## HomeEats at a Glance
 
@@ -62,28 +62,24 @@ For application security, we used the csurf and cookie-parser packages that gene
 
 ### Relational Database Design
 
-The backbone of our application was based off our database schema and therefore we made sure to accurately create the tables and all the relationships between them. We generated test data to seed the database with and additional entries were created through submissions on forms on our frontend.
+The backbone of this application was based off the database schema. I took care to accurately create all the tables and relationships between them. I generated some test data for seeding and manually entered the rest through the frontend forms connected to the database.
 
-This is our database schema:
-ADD SCHEMA HERE^^^
-![Meadium Database Schema](./db_schema_screenshot.png)
+This is the database schema:
+![HomeEats Database Schema](https://drawsql.app/ezra-pinsky/diagrams/homeeats-db)
 
 **Notes on the schema**:
 
-- Foreign keys are denoted by FK
-- Users have a One-Many relationship with cheers, comments, stories, and pins
-- String data types are in orange, numbers in yellow, dates in turquoise
-- As of now, Meadium has not implemented the Pinned functionality but a table was created for future implementation
+- Primary keys are indicated by a key symbol
+- Unique data types are indicated by a snowflake
+- The Favorite_Home_Chef and Review tables are created for future implementation
+## Conclusion & Stretch Goals
 
-## Conclusion & Next Steps
+This was my first solo and first react and redux full-stack application. It was extremely challenging and pusehd me to work relentlessly in order to complete this project in only 4 days. Creating HomeEats has cemented my knowlegde of React and Redux using hooks with the store and dramatically increased my css understanding. Being that I had limited time to complete this porject there are still many features that I would like to implement and hopefully one day launch HomeEats with.
 
-ADD DESIRED FEATURES AND STRETCH GOALS
-This was our very first group full-stack application and it was a challenging, yet rewarding experience. The process sharpened our problem-solving and communicative skills. While the project is deployed, there are various features that still need to be added and revised:
-
-- Pin feature to save stories
-- Follow authors feature
-- Refine search feature
-- Refine comment feature
-- Thoroughly test to handle all errors that may occur
+- Users can leave reviews and rate items
+- Users can favorite Home Chefs
+- Users can find local chefs using google maps api
+- Home Chefs can make posts to a feed
+- Add categories to search
 
 Thank you reading, now go get a bite to eat!
