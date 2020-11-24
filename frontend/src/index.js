@@ -5,10 +5,11 @@ import './index.css';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+
 import App from './App';
 import { restoreCSRF, fetch } from './store/csrf';
-
 import configureStore from './store/index';
+import * as sessionActions from './actions/sessionActions';
 
 const store = configureStore();
 
@@ -17,6 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 	window.csrfFetch = fetch;
 	window.store = store;
+	window.sessionActions = sessionActions;
 }
 
 function Root() {
