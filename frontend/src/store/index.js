@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import sessionReducer from './session';
+import { homeChefsListReducer } from './homeChefsList';
 
 const rootReducer = combineReducers({
 	session: sessionReducer,
+	homeChefs: homeChefsListReducer,
 });
 
 let enhancer;

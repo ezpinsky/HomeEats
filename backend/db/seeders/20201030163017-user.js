@@ -1,0 +1,251 @@
+'use strict';
+
+const { requireAuth } = require('../../utils/auth');
+
+const bcrypt = require('bcryptjs');
+
+module.exports = {
+	up: async (queryInterface, Sequelize) => {
+		return queryInterface.bulkInsert(
+			'Users',
+			[
+				{
+					first_name: 'Demo',
+					last_name: 'User',
+					email: 'demo@user.io',
+					zip: 33180,
+					hashed_pass: bcrypt.hashSync('password'),
+				},
+				{
+					first_name: 'Hodayah',
+					last_name: 'Pinsky',
+					email: 'hodayahb@gmail,com',
+					zip: 33180,
+					hashed_pass: bcrypt.hashSync('password'),
+				},
+				{
+					first_name: 'Fake',
+					last_name: 'User2',
+					email: 'fake@user2.io',
+					zip: 33180,
+					hashed_pass: bcrypt.hashSync('password'),
+				},
+				{
+					first_name: 'Manley',
+					last_name: 'Parker',
+					email: 'Rickie69@yahoo.com',
+					zip: '07984',
+					hashed_pass: bcrypt.hashSync('gOXOrp3O1_rYWbI'),
+				},
+				{
+					first_name: 'Keon',
+					last_name: 'Huels',
+					email: 'Liana_Carter79@gmail.com',
+					zip: '78410',
+					hashed_pass: bcrypt.hashSync('5TGKj1epnTOWKK4'),
+				},
+				{
+					first_name: 'Devante',
+					last_name: 'Nader',
+					email: 'Craig.Weber@yahoo.com',
+					zip: '93635',
+					hashed_pass: bcrypt.hashSync('ex20bTG2PlIZARr'),
+				},
+				{
+					first_name: 'Zella',
+					last_name: 'Stanton',
+					email: 'Eddie.Steuber@hotmail.com',
+					zip: '55851',
+					hashed_pass: bcrypt.hashSync('8reKfxHeIQMTv5y'),
+				},
+				{
+					first_name: 'Stuart',
+					last_name: 'Beier',
+					email: 'Nya64@hotmail.com',
+					zip: '98650',
+					hashed_pass: bcrypt.hashSync('B_UQWsJX0XrL_MG'),
+				},
+				{
+					first_name: 'Germaine',
+					last_name: 'Koepp',
+					email: 'Alvina.Funk@gmail.com',
+					zip: '47342',
+					hashed_pass: bcrypt.hashSync('4lnBHdD8ywtf5ck'),
+				},
+				{
+					first_name: 'Afton',
+					last_name: 'Gulgowski',
+					email: 'Cary.Rosenbaum@hotmail.com',
+					zip: '21634',
+					hashed_pass: bcrypt.hashSync('VZmiR2QIJ6GRIIC'),
+				},
+				{
+					first_name: 'Harmony',
+					last_name: 'Brekke',
+					email: 'Wyman.Satterfield@hotmail.com',
+					zip: '10050',
+					hashed_pass: bcrypt.hashSync('k37PWxHog_T8J17'),
+				},
+				{
+					first_name: 'Alessandra',
+					last_name: 'Nolan',
+					email: 'Albina77@yahoo.com',
+					zip: '26912',
+					hashed_pass: bcrypt.hashSync('eYmXUjayl1CMzKw'),
+				},
+				{
+					first_name: 'Eleanora',
+					last_name: 'Ullrich',
+					email: 'Noel96@hotmail.com',
+					zip: '96279',
+					hashed_pass: bcrypt.hashSync('7kk4tohVnbZ9YiM'),
+				},
+				{
+					first_name: 'Odie',
+					last_name: 'Mayert',
+					email: 'Camron.Morissette@yahoo.com',
+					zip: '96177',
+					hashed_pass: bcrypt.hashSync('q1nKtp5e51FHpsu'),
+				},
+				{
+					first_name: 'Lamont',
+					last_name: 'Doyle',
+					email: 'Graham68@gmail.com',
+					zip: '92951',
+					hashed_pass: bcrypt.hashSync('esKY22zBFqmDURI'),
+				},
+				{
+					first_name: 'Nannie',
+					last_name: 'MacGyver',
+					email: 'Marcelo34@hotmail.com',
+					zip: '09016',
+					hashed_pass: bcrypt.hashSync('xVYTpPaYVjcGIwV'),
+				},
+				{
+					first_name: 'America',
+					last_name: 'Klein',
+					email: 'Amanda.Abernathy@gmail.com',
+					zip: '86387',
+					hashed_pass: bcrypt.hashSync('RB0YeFvCdU4S2fO'),
+				},
+				{
+					first_name: 'Kameron',
+					last_name: 'Gleason',
+					email: 'Mertie96@hotmail.com',
+					zip: '92778',
+					hashed_pass: bcrypt.hashSync('tdtEQ3Utmthol2U'),
+				},
+				{
+					first_name: 'Gwendolyn',
+					last_name: 'Harber',
+					email: 'Reid10@gmail.com',
+					zip: '43397',
+					hashed_pass: bcrypt.hashSync('pcssaQJzGyaF56f'),
+				},
+				{
+					first_name: 'Carissa',
+					last_name: 'McLaughlin',
+					email: 'Elody_Hane0@yahoo.com',
+					zip: '78107',
+					hashed_pass: bcrypt.hashSync('IgOldMI_X3pFlb_'),
+				},
+				{
+					first_name: 'Margot',
+					last_name: 'Lowe',
+					email: 'Vern9@yahoo.com',
+					zip: '60815',
+					hashed_pass: bcrypt.hashSync('lU3ygFNQzQHvzSO'),
+				},
+				{
+					first_name: 'Elfrieda',
+					last_name: 'Harris',
+					email: 'Tobin_Mitchell38@gmail.com',
+					zip: '79897',
+					hashed_pass: bcrypt.hashSync('va0heAwKOAE9QGY'),
+				},
+				{
+					first_name: 'Jailyn',
+					last_name: 'Pouros',
+					email: 'Fern45@yahoo.com',
+					zip: '93048',
+					hashed_pass: bcrypt.hashSync('0wZHfYYM8d1GVx6'),
+				},
+				{
+					first_name: 'Elinore',
+					last_name: 'Gleichner',
+					email: 'Genoveva81@gmail.com',
+					zip: '86944',
+					hashed_pass: bcrypt.hashSync('6Xi0Ur_Unhpo5cu'),
+				},
+				{
+					first_name: 'Friedrich',
+					last_name: 'Thompson',
+					email: 'Kurt_Cruickshank@hotmail.com',
+					zip: '53073',
+					hashed_pass: bcrypt.hashSync('xjXHtC0bujxKJD3'),
+				},
+				{
+					first_name: 'Claire',
+					last_name: 'Ortiz',
+					email: 'Markus.Ryan97@hotmail.com',
+					zip: '30677',
+					hashed_pass: bcrypt.hashSync('wAyY3vtKuj3KOki'),
+				},
+				{
+					first_name: 'Leopoldo',
+					last_name: 'Fisher',
+					email: 'Norma.Hettinger@hotmail.com',
+					zip: '08169',
+					hashed_pass: bcrypt.hashSync('e1Ats7iaaC_sbdT'),
+				},
+				{
+					first_name: 'Tierra',
+					last_name: 'Franecki',
+					email: 'Myah_Boehm@yahoo.com',
+					zip: '00226',
+					hashed_pass: bcrypt.hashSync('9kTS5LItLGiEWCt'),
+				},
+				{
+					first_name: 'Arvid',
+					last_name: 'King',
+					email: 'Maud.Ruecker33@hotmail.com',
+					zip: '15490',
+					hashed_pass: bcrypt.hashSync('6pICqoZt7kQjSx3'),
+				},
+				{
+					first_name: 'Maybelle',
+					last_name: 'Abshire',
+					email: 'Abbigail.Anderson@gmail.com',
+					zip: '20887',
+					hashed_pass: bcrypt.hashSync('XKWzyTAV5LQtaqc'),
+				},
+				{
+					first_name: 'Milton',
+					last_name: 'Schmitt',
+					email: 'Gail_Hettinger49@gmail.com',
+					zip: '64482',
+					hashed_pass: bcrypt.hashSync('Hc8abxnAjtkA9_V'),
+				},
+				{
+					first_name: 'Marilie',
+					last_name: 'Johnson',
+					email: 'King.Wunsch25@yahoo.com',
+					zip: '65338',
+					hashed_pass: bcrypt.hashSync('tgR7osOYKDVR_nZ'),
+				},
+				{
+					first_name: 'Madelyn',
+					last_name: 'Kirlin',
+					email: 'Aglae_Osinski74@hotmail.com',
+					zip: '94214',
+					hashed_pass: bcrypt.hashSync('EDF_TwJqaD1ybSv'),
+				},
+			],
+			{}
+		);
+	},
+
+	down: async (queryInterface, Sequelize) => {
+		await queryInterface.dropTable('Users');
+	},
+};

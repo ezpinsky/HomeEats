@@ -40,6 +40,11 @@ module.exports = {
 				type: Sequelize.DATE,
 				defaultValue: Sequelize.fn('now'),
 			},
+			HomeChefId: {
+				allowNull: true,
+				type: Sequelize.INTEGER,
+				defaultValue: null,
+			},
 		});
 	},
 	down: (queryInterface, Sequelize) => {

@@ -8,30 +8,31 @@ import ProfileButton from './ProfileButton';
 
 export default function Navigation({ isLoaded }) {
 	const sessionUser = useSelector(state => state.session.user);
+	const home_chef = useSelector(state => state.session.chef);
 
 	let sessionLinks;
 	if (sessionUser) {
+		//if user then add normal links
 		sessionLinks = <ProfileButton user={sessionUser} />;
 	} else {
-		sessionLinks = (
-			<>
-				<NavLink to='/signup'>Sign up</NavLink>
-				<NavLink to='/signin'>Sign in</NavLink>
-			</>
-		);
+		//if home chef then add home_chef link
+		sessionLinks = <ProfileButton user={sessionUser} chef={home_chef} />;
 	}
+
 	return (
-		<nav className='rounded-corners'>
-			<ul>
-				<li>
+		<nav>
+			<div className='nav-item'>
+				<NavLink to='/home' className='nav-logo'>
+					HomeEats
+				</NavLink>
+			</div>
+			<div className='nav-item'>
+				<div>
 					<NavLink exact to='/'>
-						<div className='profile-button-container'>
-							Home
-							{isLoaded && sessionLinks}
-						</div>
+						<div className='hamburger-button'>{isLoaded && sessionLinks}</div>
 					</NavLink>
-				</li>
-			</ul>
+				</div>
+			</div>
 		</nav>
 	);
 }
