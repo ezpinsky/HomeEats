@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom';
 import './kitchen-banner.jpg';
 import Navigation from '../Navigation';
 import * as sessionActions from '../../actions/sessionActions';
+import HomeChefsList from '../HomeChefsList';
 
 export default function Home(prop) {
 	const sessionUser = useSelector(state => state.session.user);
@@ -23,6 +24,7 @@ export default function Home(prop) {
 			<div className='banner-image'>
 				<p id='welcome'>Welcome Back!</p>
 			</div>
+			<HomeChefsList />
 		</div>
 	);
 }

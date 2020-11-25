@@ -18,7 +18,7 @@ export const removeUser = () => {
 //thunks
 export const signup = user => async dispatch => {
 	const { first_name, last_name, zip, email, password } = user;
-	const response = await fetch('/api/users', {
+	const res = await fetch('/api/users', {
 		method: 'POST',
 		body: JSON.stringify({
 			first_name,
@@ -28,21 +28,21 @@ export const signup = user => async dispatch => {
 			password,
 		}),
 	});
-	dispatch(setUser(response.data.user));
-	return response;
+	dispatch(setUser(res.data.user));
+	return res;
 };
 
 export const login = user => async dispatch => {
 	const { credential, password } = user;
-	const response = await fetch('/api/session', {
+	const res = await fetch('/api/session', {
 		method: 'POST',
 		body: JSON.stringify({
 			credential,
 			password,
 		}),
 	});
-	dispatch(setUser(response.data.user));
-	return response;
+	dispatch(setUser(res.data.user));
+	return res;
 };
 
 export const restoreUser = () => async dispatch => {

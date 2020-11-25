@@ -13,7 +13,7 @@ export const getHomeChefsListLoading = () => {
 export const getHomeChefsListSuccess = homeChefs => {
 	return {
 		type: HOME_CHEF_LIST,
-		HomeChefs: homeChefs,
+		homeChefs: homeChefs,
 	};
 };
 
@@ -25,25 +25,18 @@ export const getHomeChefsListError = error => {
 };
 
 export function getHomeChefsList() {
-	return dispatch => {
-		return dispatch => {
-			dispatch(getHomeChefsListLoading());
-			fetch('/api/homeChefsList')
-				.then(res => res.json())
-				.then(res => {
-					if (res.error) {
-						throw res.error;
-					}
-					dispatch(getHomeChefsListSuccess)(res.homeChefsList);
-					return res.homeChefsList;
-				})
-				.catch(error => {
-					dispatch(getHomeChefsListError(error));
-				});
-		};
+	return async dispatch => {
+		dispatch(getHomeChefsListLoading());
+		const res = await fetch('/api/homeChefsList');
+		console.log(res);
+		dispatch(getHomeChefsListSuccess(res.data));
+		return res.data;
 	};
 }
 
+// .catch(error => {
+// 	dispatch(getHomeChefsListError(error));
+// });
 //home-chef-page
 
 //menu

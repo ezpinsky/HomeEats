@@ -84,6 +84,7 @@ body {
 	border: 1px solid white;
 	background-color: #427c4f;
 	color: white;
+	cursor: pointer;
 }
 
 ::placeholder {
@@ -133,6 +134,7 @@ hr {
 	border: none;
 	background-color: white;
 	color: #427c4f;
+	cursor: pointer;
 }
 
 .alt-auth-button:focus {

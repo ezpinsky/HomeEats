@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react';
+import React, { useState } from 'react';
 import * as sessionActions from '../../actions/sessionActions';
 import { useDispatch } from 'react-redux';
 

@@ -1,34 +1,41 @@
 'use strict';
 module.exports = {
-	up: (queryInterface, Sequelize) => {
-		return queryInterface.createTable('Users', {
+	up: async (queryInterface, Sequelize) => {
+		await queryInterface.createTable('Home_Chefs', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER,
 			},
-			first_name: {
-				type: Sequelize.STRING(30),
-				allowNull: false,
-			},
-			last_name: {
-				type: Sequelize.STRING(30),
-				allowNull: false,
-			},
-			email: {
-				type: Sequelize.STRING(256),
+			user_id: {
+				type: Sequelize.INTEGER,
 				allowNull: false,
 				unique: true,
+				references: { model: 'Users' },
+			},
+			name: {
+				type: Sequelize.STRING(150),
+				unique: true,
+				allowNull: false,
+			},
+			street_address: {
+				type: Sequelize.STRING(255),
+				allowNull: false,
+			},
+			city: {
+				type: Sequelize.STRING(100),
+				allowNull: false,
 			},
 			zip: {
 				type: Sequelize.STRING(5),
 				allowNull: false,
 				validate: { notEmpty: true, len: [5, 5] },
 			},
-			hashed_pass: {
-				type: Sequelize.STRING.BINARY,
+			phone: {
+				type: Sequelize.STRING(12),
 				allowNull: false,
+				validate: { notEmpty: true, len: [10, 12] },
 			},
 			createdAt: {
 				allowNull: false,
@@ -40,14 +47,9 @@ module.exports = {
 				type: Sequelize.DATE,
 				defaultValue: Sequelize.fn('now'),
 			},
-			HomeChefId: {
-				allowNull: true,
-				type: Sequelize.INTEGER,
-				defaultValue: null,
-			},
 		});
 	},
-	down: (queryInterface, Sequelize) => {
-		return queryInterface.dropTable('Users');
+	down: async (queryInterface, Sequelize) => {
+		await queryInterface.dropTable('Home_Chefs');
 	},
 };

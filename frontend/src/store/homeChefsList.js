@@ -4,7 +4,7 @@ import {
 	HOME_CHEF_LIST_LOADING,
 } from '../actions/homeChefListActions';
 
-const initialState = { homeChefs: [] };
+const initialState = { homeChefsList: [] };
 
 export function homeChefsListReducer(state = initialState, { type, homeChefs, error }) {
 	let newState;
@@ -16,7 +16,7 @@ export function homeChefsListReducer(state = initialState, { type, homeChefs, er
 		case HOME_CHEF_LIST:
 			newState = Object.assign({}, state);
 			newState.pending = false;
-			newState.homeChefs = homeChefs;
+			newState.homeChefsList = homeChefs;
 			return newState;
 		case HOME_CHEF_LIST_ERROR:
 			newState = Object.assign({}, state);
@@ -27,7 +27,3 @@ export function homeChefsListReducer(state = initialState, { type, homeChefs, er
 			return state;
 	}
 }
-
-export const getHomeChefsList = state => state.homeChefs;
-export const getHomeChefsListPending = state => state.pending;
-export const getHomeChefsListError = state => state.error;
