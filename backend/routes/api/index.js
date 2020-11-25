@@ -1,6 +1,19 @@
-const router = require("express").Router();
-const sessionRouter = require("./session.js");
-const usersRouter = require("./users.js");
+const router = require('express').Router();
+const sessionRouter = require('./session.js');
+const usersRouter = require('./users.js');
+const homeChefsListRouter = require('./homeChefsList.js');
+
+router.post('/test', function (req, res) {
+	res.json({ requestBody: req.body });
+});
+
+router.use('/session', sessionRouter);
+
+router.use('/users', usersRouter);
+
+router.use('/homeChefsList', homeChefsListRouter);
+
+module.exports = router;
 
 // // GET /api/set-token-cookie
 // const asyncHandler = require('express-async-handler');
@@ -35,13 +48,3 @@ const usersRouter = require("./users.js");
 //     return res.json(req.user);
 //   }
 // );
-
-router.post("/test", function (req, res) {
-  res.json({ requestBody: req.body });
-});
-
-router.use("/session", sessionRouter);
-
-router.use("/users", usersRouter);
-
-module.exports = router;

@@ -1,0 +1,28 @@
+body {
+	height: 100%;
+}
+
+.main-content {
+	height: 1200px;
+}
+
+#welcome {
+	margin: 1px;
+	font-size: 40px;
+	color: white;
+	/* text-shadow: 0 1px 4px black; */
+	position: absolute;
+	left: 220px;
+	top: 75px;
+}
+
+.banner-image {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url('./kitchen-banner.jpg');
+	height: 200px;
+	background-size: 1920px 700px;
+	background-position: center;
+	background-position-x: -300px;
+	background-repeat: no-repeat;
+	position: relative;
+}

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions';
 
-export default function ProfileButton({ user }) {
+export default function ProfileButton({ user, home_chef }) {
 	const dispatch = useDispatch();
 	const [showMenu, setShowMenu] = useState(false);
 
@@ -31,25 +32,17 @@ export default function ProfileButton({ user }) {
 	return (
 		<>
 			<div>
-				<button onClick={openMenu}>
-					<div
-						style={{
-							'font-size': '20px',
-							'color': 'turquoise',
-						}}
-					>
-						<i className='fas fa-user-circle' />
-					</div>
-				</button>
+				<button onClick={openMenu}>Hamburger bars</button>
 			</div>
 			{showMenu && (
-				<ul className='profile-dropdown'>
-					<li>{`${user.first_name}`}</li>
-					<li>{user.email}</li>
-					<li>
+				<div className='hamburger-dropdown'>
+					<div>{`${user.first_name}`}</div>
+					(home_chef.name && <div>{<NavLink> {home_chef.name}</NavLink>}</div>)
+					<div>{user.email}</div>
+					<div>
 						<button onClick={signOut}>Log Out</button>
-					</li>
-				</ul>
+					</div>
+				</div>
 			)}
 		</>
 	);

@@ -1,6 +1,5 @@
 import './SplashPage.css';
 import './splash-image.jpg';
-import './cutting-board.png';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';

@@ -1,19 +1,28 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import Form from '../Form';
-import Input from '../Input';
+import './Home.css';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import './kitchen-banner.jpg';
+import Navigation from '../Navigation';
+import * as sessionActions from '../../actions/sessionActions';
 
 export default function Home(prop) {
 	const sessionUser = useSelector(state => state.session.user);
+	const [isLoaded, setIsLoaded] = useState(false);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+	}, [dispatch]);
+
 	if (!sessionUser) return <Redirect to='/' />;
 
 	return (
-		<Form>
-			<Input name='i1' placeholder='Chef Name' />
-			<Input name='i2' />
-			<Input name='i3' />
-			<Input name='i4' />
-		</Form>
+		<div className='main-content'>
+			<Navigation isLoaded={isLoaded} />
+			<div className='banner-image'>
+				<p id='welcome'>Welcome Back!</p>
+			</div>
+		</div>
 	);
 }
