@@ -4,11 +4,16 @@ nav {
 	height: 60px;
 	width: 100%;
 	background-color: #427c4f;
-	box-shadow: 0px 3px 10px rgb(0, 0, 0);
+	box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	z-index: 2;
+}
+.nav-item {
+	width: 300px;
+	display: flex;
+	justify-content: flex-end;
 }
 
 nav a {
@@ -16,6 +21,7 @@ nav a {
 }
 
 nav button {
+	margin: 15px 30px;
 	border: none;
 	background-color: white;
 	width: 70px;
@@ -29,7 +35,15 @@ nav li {
 	list-style-type: none;
 }
 
-.profile-dropdown {
+.nav-logo {
+	font-size: 35px;
+	margin: 10px 30px;
+	font-family: 'Signika';
+	font-weight: 400;
+	color: white;
+}
+
+/* .profile-dropdown {
 	position: absolute;
 	top: 43px;
 	left: 14px;
@@ -53,4 +67,4 @@ nav li {
 	display: flex;
 	justify-content: space-around;
 	flex-direction: row-reverse;
-}
+} */

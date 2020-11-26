@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { v4 } from 'uuid';
 import * as homeChefsListActions from '../../actions/homeChefListActions';
 
 export default function HomeChefList() {
@@ -14,9 +16,11 @@ export default function HomeChefList() {
 	const { homeChefsList } = useSelector(state => state.homeChefs);
 
 	let chefsList = homeChefsList.map(chef => (
-		<div key={chef.id} className='chef-list-item'>
-			{chef.name}
-		</div>
+		<NavLink key={v4()} to={`/home-chef/${chef.id}`}>
+			<div key={v4()} className='chef-list-item'>
+				{chef.name}
+			</div>
+		</NavLink>
 	));
 	if (!isLoaded) return null;
 

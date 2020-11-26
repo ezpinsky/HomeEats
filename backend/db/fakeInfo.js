@@ -2,22 +2,22 @@ const faker = require('faker');
 const fetch = require('node-fetch');
 
 //makes all users
-const generateFakeUsers = () => {
-	let fakes = [];
-	let fake;
-	for (let i = 0; i < 30; i++) {
-		const email = faker.internet.email();
-		const first_name = faker.name.firstName();
-		const last_name = faker.name.lastName();
-		const hashed_pass = `bcrypt.hashSync('${faker.internet.password()}')`;
-		const zip = faker.address.zipCode().slice(0, 5);
+// const generateFakeUsers = () => {
+// 	let fakes = [];
+// 	let fake;
+// 	for (let i = 0; i < 30; i++) {
+// 		const email = faker.internet.email();
+// 		const first_name = faker.name.firstName();
+// 		const last_name = faker.name.lastName();
+// 		const hashed_pass = `bcrypt.hashSync('${faker.internet.password()}')`;
+// 		const zip = faker.address.zipCode().slice(0, 5);
 
-		fake = { email, first_name, last_name, hashed_pass, zip };
-		fakes.push(fake);
-	}
+// 		fake = { email, first_name, last_name, hashed_pass, zip };
+// 		fakes.push(fake);
+// 	}
 
-	console.log(fakes);
-};
+// 	console.log(fakes);
+// };
 
 generateFakeUsers();
 
