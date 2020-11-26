@@ -1,3 +1,4 @@
+import './HomeChefList.css';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -17,10 +18,11 @@ export default function HomeChefList() {
 
 	let chefsList = homeChefsList.map(chef => (
 		<div key={v4()} className='chef-container'>
-			<NavLink key={v4()} to={`/home-chef/${chef.id}`}>
-				<div key={v4()} className='chef-list-item'>
-					{chef.name}
-				</div>
+			<div className='image-container'>
+				<img src={`${chef.image}`} alt='home chef' className='chef-image' />
+			</div>
+			<NavLink to={`/home-chef/${chef.id}`}>
+				<div className='chef-list-item'>{chef.name}</div>
 			</NavLink>
 		</div>
 	));
