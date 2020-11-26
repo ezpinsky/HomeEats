@@ -47,10 +47,6 @@ body {
 	padding: 25px;
 }
 
-/* .login-form-container label {
-	color: white;
-} */
-
 .login-demo-buttons-container {
 	height: 120px;
 	margin-top: 5px;
@@ -120,25 +116,21 @@ hr {
 	position: relative;
 }
 
-.alt-auth-button {
+.account-message {
 	border: none;
 	background-color: transparent;
 	position: relative;
 	top: 20px;
 	left: 80px;
-
-	/* margin: auto; */
 }
-
-.alt-auth-button:hover {
+.account-message a {
+	text-decoration: none;
+	color: black;
+}
+.account-message a:hover {
 	border: none;
-	background-color: white;
 	color: #427c4f;
 	cursor: pointer;
-}
-
-.alt-auth-button:focus {
-	outline: none;
 }
 
 .login-error {

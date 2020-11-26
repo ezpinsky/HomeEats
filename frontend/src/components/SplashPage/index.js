@@ -2,7 +2,7 @@ import './SplashPage.css';
 import './splash-image.jpg';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink, useParams } from 'react-router-dom';
 import LoginForm from '../LoginFormPage';
 import SignUpForm from '../SignUpForm';
 
@@ -10,23 +10,29 @@ export default function SplashPage() {
 	const sessionUser = useSelector(state => state.session.user);
 
 	const [loginForm, setLoginForm] = useState(true);
+	let { form } = useParams();
+
+	if (sessionUser) return <Redirect to='/' />;
+
+	let formFields;
+	let accountMessage;
+	if (loginForm) {
+		formFields = <LoginForm />;
+		accountMessage = "Don't have an account? Sign up here!";
+		form = 'signup';
+	} else {
+		formFields = <SignUpForm />;
+		accountMessage = 'Already have an account? Sign in here!';
+		form = 'login';
+	}
 
 	const handleClick = e => {
 		e.preventDefault();
 		setLoginForm(!loginForm);
+		console.log(form);
+		return <Redirect to={`/${form}`} />;
 	};
 
-	if (sessionUser) return <Redirect to='/home' />;
-	let formFields;
-	let splashMessage;
-
-	if (loginForm) {
-		formFields = <LoginForm />;
-		splashMessage = "Don't have an account? Sign up here!";
-	} else {
-		formFields = <SignUpForm />;
-		splashMessage = 'Already have an account? Sign in here!';
-	}
 	return (
 		<div className='splash-container'>
 			<div className='form-outer-container'>
@@ -37,8 +43,8 @@ export default function SplashPage() {
 					</div>
 					{formFields}
 					<hr className='splash-line'></hr>
-					<button onClick={handleClick} className='alt-auth-button'>
-						{splashMessage}
+					<button onClick={handleClick} className='account-message'>
+						<NavLink to={`/${form}`}>{accountMessage}</NavLink>
 					</button>
 				</div>
 			</div>

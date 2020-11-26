@@ -16,13 +16,13 @@ export default function Home(prop) {
 		dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
 	}, [dispatch]);
 
-	if (!sessionUser) return <Redirect to='/' />;
+	if (!sessionUser) return <Redirect to='/login' />;
 
 	return (
 		<div className='main-content'>
 			<Navigation isLoaded={isLoaded} />
 			<div className='banner-image'>
-				<p id='welcome'>Welcome Back!</p>
+				<p id='welcome'>Welcome Home!</p>
 			</div>
 			<HomeChefsList />
 		</div>
