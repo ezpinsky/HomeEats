@@ -1,7 +1,9 @@
 /* TODO Add site wide styles */
 body {
-	margin: 0px;
-	min-height: 100%;
+	margin: 0;
+	height: 100vh;
+	width: 100vw;
+	/* height: 100%; */
 	font-family: 'Sen', sans-serif;
 	font-family: 'Signika', sans-serif;
 	background-color: #ffffff;

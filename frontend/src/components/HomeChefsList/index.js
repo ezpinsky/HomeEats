@@ -16,14 +16,17 @@ export default function HomeChefList() {
 	const { homeChefsList } = useSelector(state => state.homeChefs);
 
 	let chefsList = homeChefsList.map(chef => (
-		<NavLink key={v4()} to={`/home-chef/${chef.id}`}>
-			<div key={v4()} className='chef-list-item'>
-				{chef.name}
-			</div>
-		</NavLink>
+		<div key={v4()} className='chef-container'>
+			<NavLink key={v4()} to={`/home-chef/${chef.id}`}>
+				<div key={v4()} className='chef-list-item'>
+					{chef.name}
+				</div>
+			</NavLink>
+		</div>
 	));
-	if (!isLoaded) return null;
+	console.log(chefsList);
 
+	if (!isLoaded) return <p>Loading...</p>;
 	return (
 		<>
 			<div className='list-container'>

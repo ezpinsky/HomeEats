@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './kitchen-banner.jpg';
 import Navigation from '../Navigation';
-import * as sessionActions from '../../actions/sessionActions';
 import HomeChefsList from '../HomeChefsList';
+import * as sessionActions from '../../actions/sessionActions';
 
 export default function Home(prop) {
 	const sessionUser = useSelector(state => state.session.user);
@@ -15,6 +15,14 @@ export default function Home(prop) {
 	useEffect(() => {
 		dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
 	}, [dispatch]);
+
+	if (!isLoaded)
+		return (
+			<>
+				<Navigation />
+				<p>Loading...</p>
+			</>
+		);
 
 	if (!sessionUser) return <Redirect to='/login' />;
 
