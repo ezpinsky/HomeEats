@@ -22,8 +22,8 @@ export default function Navigation({ isLoaded }) {
 	return (
 		<nav>
 			<div className='nav-item'>
-				<NavLink to='/home' className='nav-logo'>
-					HomeEats
+				<NavLink to='/home'>
+					<div className='nav-logo'>HomeEats</div>
 				</NavLink>
 			</div>
 			<div className='nav-item'>

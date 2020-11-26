@@ -28,15 +28,11 @@ export function getHomeChefsList() {
 	return async dispatch => {
 		dispatch(getHomeChefsListLoading());
 		const res = await fetch('/api/homeChefsList');
-		console.log(res);
 		dispatch(getHomeChefsListSuccess(res.data));
 		return res.data;
 	};
 }
 
-// .catch(error => {
-// 	dispatch(getHomeChefsListError(error));
-// });
 //home-chef-page
 
 //menu
