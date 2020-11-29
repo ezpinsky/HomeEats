@@ -20,7 +20,7 @@ const generateFakeUsers = () => {
 	console.log(fakes);
 };
 
-generateFakeUsers();
+// generateFakeUsers();
 
 //made all home_chefs
 const restaurantNames = [
@@ -58,14 +58,15 @@ const generateFakeHomeChefs = async () => {
 		const user_id = i + 3;
 		const image = await getImgUrl();
 		const name = restaurantNames[i];
+		const description = faker.lorem.paragraph();
 		const street_address = faker.address.streetAddress();
 		const city = faker.address.city();
 		const zip = faker.address.zipCode().slice(0, 5);
 		const phone = faker.phone.phoneNumberFormat();
-		fake = { user_id, image, name, street_address, city, zip, phone };
+		fake = { user_id, image, description, name, street_address, city, zip, phone };
 		fakes.push(fake);
 	}
 	console.log(fakes);
 };
 
-// generateFakeHomeChefs();
+generateFakeHomeChefs();

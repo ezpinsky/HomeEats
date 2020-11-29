@@ -13,6 +13,10 @@ export default function SplashPage() {
 	const [loginForm, setLoginForm] = useState(true);
 	let { form } = useParams();
 
+	if (form !== 'signup' || form !== 'login') {
+		return <Redirect to='/' />;
+	}
+
 	if (sessionUser) return <Redirect to='/' />;
 
 	let formFields;
