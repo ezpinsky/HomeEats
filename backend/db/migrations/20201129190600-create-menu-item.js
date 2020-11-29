@@ -1,51 +1,35 @@
 'use strict';
 module.exports = {
 	up: async (queryInterface, Sequelize) => {
-		await queryInterface.createTable('Home_Chefs', {
+		await queryInterface.createTable('Menu_Items', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER,
 			},
-			user_id: {
-				type: Sequelize.INTEGER,
+			menu_id: {
 				allowNull: false,
-				unique: true,
-				references: { model: 'Users' },
+				type: Sequelize.INTEGER,
+				references: { model: 'Menus' },
+			},
+			name: {
+				allowNull: false,
+				type: Sequelize.STRING(100),
 			},
 			image: {
 				type: Sequelize.TEXT(),
 				unique: false,
 				allowNull: true,
 			},
-			name: {
-				type: Sequelize.STRING(100),
-				unique: true,
-				allowNull: false,
-			},
 			description: {
-				type: Sequelize.TEXT,
+				type: Sequelize.STRING(255),
 				unique: false,
 				allowNull: false,
 			},
-			street_address: {
-				type: Sequelize.STRING(255),
+			price: {
 				allowNull: false,
-			},
-			city: {
-				type: Sequelize.STRING(100),
-				allowNull: false,
-			},
-			zip: {
-				type: Sequelize.STRING(5),
-				allowNull: false,
-				validate: { notEmpty: true, len: [5, 5] },
-			},
-			phone: {
-				type: Sequelize.STRING(12),
-				allowNull: false,
-				validate: { notEmpty: true, len: [10, 12] },
+				type: Sequelize.DECIMAL,
 			},
 			createdAt: {
 				allowNull: false,
@@ -60,6 +44,6 @@ module.exports = {
 		});
 	},
 	down: async (queryInterface, Sequelize) => {
-		await queryInterface.dropTable('Home_Chefs');
+		await queryInterface.dropTable('Menu_Items');
 	},
 };

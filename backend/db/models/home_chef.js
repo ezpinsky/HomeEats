@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
 		 */
 		static associate(models) {
 			Home_Chef.belongsTo(models.User, { foreignKey: 'user_id' });
+			Home_Chef.hasMany(models.Menu, { foreignKey: 'home_chef_id' });
+			Home_Chef.hasMany(models.Cuisine, { foreignKey: 'home_chef_id' });
 		}
 	}
 	Home_Chef.init(
@@ -16,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
 			user_id: DataTypes.INTEGER,
 			image: DataTypes.TEXT,
 			name: DataTypes.STRING,
+			description: DataTypes.TEXT,
 			street_address: DataTypes.STRING,
 			city: DataTypes.STRING,
 			zip: DataTypes.STRING,
