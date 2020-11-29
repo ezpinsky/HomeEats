@@ -3,12 +3,13 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions';
 
-export default function ProfileButton({ user, home_chef }) {
+export default function ProfileButton() {
 	const dispatch = useDispatch();
 	const [showMenu, setShowMenu] = useState(false);
-	const sessionUser = useSelector(state => state.session.user);
-	// make useSeletor for chefinfo
+	const user = useSelector(state => state.session.user);
 
+	// make useSeletor for chefinfo
+	console.log(user);
 	const openMenu = () => {
 		if (showMenu) return;
 		setShowMenu(true);
@@ -33,18 +34,29 @@ export default function ProfileButton({ user, home_chef }) {
 
 	return (
 		<>
-			<div className='hamburger-contianer'>
+			<div className='hamburger-container'>
 				<button className='hamburger-button' onClick={openMenu}>
-					<i class='fas fa-bars'></i>
+					<div className='bar'></div>
+					<div className='bar'></div>
+					<div className='bar'></div>
 				</button>
 			</div>
 			{showMenu && (
 				<div className='hamburger-dropdown'>
-					<div>{`${user.first_name}`}</div>
-					(home_chef.name && <div>{<NavLink> {home_chef.name}</NavLink>}</div>)
-					<div>{user.email}</div>
-					<div>
-						<button onClick={signOut}>Log Out</button>
+					<div className='dropdown-item'>
+						<div>{`Hello, ${user.first_name}`}</div>
+					</div>
+					<div className='dropdown-item'>
+						<NavLink to={`/user/${user.id}/basket}`}>My Basket</NavLink>
+					</div>
+					{user.HomeChefId && (
+						<div className='dropdown-item'>
+							<NavLink to={`/home-chef/${user.HomeChefId}`}>My Home Chef</NavLink>
+						</div>
+					)}
+					{/* my orders for stretch gaol */}
+					<div className='dropdown-item'>
+						<button onClick={signOut}>Sign Out</button>
 					</div>
 				</div>
 			)}

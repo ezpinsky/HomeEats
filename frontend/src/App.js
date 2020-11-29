@@ -10,6 +10,7 @@ function App() {
 			<Switch>
 				<Route path='/home-chef/:id' component={HomeChef} />
 				<Route exact path='/' component={Home} />
+				<Route path='/user/basket/:id' component={<p>not done yet</p>} />
 				<Route path='/:form' component={SplashPage} /> {/*must be last route*/}
 				<Route path='*' component={SplashPage} />
 			</Switch>

@@ -9,13 +9,8 @@ import SignUpForm from '../SignUpForm';
 export default function SplashPage() {
 	const sessionUser = useSelector(state => state.session.user);
 	const [isLoaded, setIsLoaded] = useState(false);
-
 	const [loginForm, setLoginForm] = useState(true);
 	let { form } = useParams();
-
-	// if (form !== 'signup' || form !== 'login') {
-	// 	return <Redirect to='/' />;
-	// }
 
 	if (sessionUser) return <Redirect to='/' />;
 
