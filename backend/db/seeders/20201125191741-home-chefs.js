@@ -10,8 +10,9 @@ module.exports = {
 					name: 'Catch Me Acai',
 					image:
 						'https://instagram.fmia1-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/p640x640/119472679_955743081570279_7133992288319446444_n.jpg?_nc_ht=instagram.fmia1-1.fna.fbcdn.net&_nc_cat=103&_nc_ohc=18s4-zmcStEAX9i5DIN&tp=1&oh=2e5a17c33417407e4a06810d384ef2fa&oe=5FE8E5D4',
-          description: 'Catch Me Acai will cater all your celebrations, conferences, and everything in between in the South Florida Area! From our beautiful heavenly charcuterie and cheese boards to our delectable dessert spreads and more, you will have plenty of options to choose from to elevate your event and impress your guests. this'
-            street_address: '19680 E Country Club Dr',
+					description:
+						'Catch Me Acai will cater all your celebrations, conferences, and everything in between in the South Florida Area! From our jaw-dropping charcuterie and cheese boards to our delectable dessert spreads and more, you will have plenty of options to choose from to elevate your event and impress your guests. Catch me acai also offers dine-in options on select dates. Please call for more info.',
+					street_address: '19680 E Country Club Dr',
 					city: 'Aventura',
 					zip: '33180',
 					phone: '954-455-9788',
