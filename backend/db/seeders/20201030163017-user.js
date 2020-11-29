@@ -15,6 +15,7 @@ module.exports = {
 					email: 'demo@user.io',
 					zip: 33180,
 					hashed_pass: bcrypt.hashSync('password'),
+					HomeChefId: null,
 				},
 				{
 					first_name: 'Hodayah',
@@ -23,13 +24,6 @@ module.exports = {
 					zip: 33180,
 					hashed_pass: bcrypt.hashSync('password'),
 					HomeChefId: 0,
-				},
-				{
-					first_name: 'Fake',
-					last_name: 'User2',
-					email: 'fake@user2.io',
-					zip: 33180,
-					hashed_pass: bcrypt.hashSync('password'),
 				},
 				{
 					email: 'Evangeline.Dicki@hotmail.com',
@@ -226,41 +220,6 @@ module.exports = {
 					last_name: 'Harris',
 					hashed_pass: "bcrypt.hashSync('2H3DgC3D5jrRzkr')",
 					zip: '93053',
-				},
-				{
-					email: 'Judge.McLaughlin15@gmail.com',
-					first_name: 'Judah',
-					last_name: 'Koch',
-					hashed_pass: "bcrypt.hashSync('54YK0lOCK54uln7')",
-					zip: '18400',
-				},
-				{
-					email: 'Leola_Friesen@hotmail.com',
-					first_name: 'Hardy',
-					last_name: 'Schmitt',
-					hashed_pass: "bcrypt.hashSync('fOi6gr5Er8aDzez')",
-					zip: '49432',
-				},
-				{
-					email: 'Estefania_Roob@yahoo.com',
-					first_name: 'Enoch',
-					last_name: 'Bogan',
-					hashed_pass: "bcrypt.hashSync('aI__qoELtL0R8JU')",
-					zip: '81130',
-				},
-				{
-					email: 'Antonetta.Sipes@gmail.com',
-					first_name: 'Alberto',
-					last_name: 'Ernser',
-					hashed_pass: "bcrypt.hashSync('82IiFUanTWmWTNU')",
-					zip: '32806',
-				},
-				{
-					email: 'Marisa52@hotmail.com',
-					first_name: 'Mackenzie',
-					last_name: 'Runolfsdottir',
-					hashed_pass: "bcrypt.hashSync('6gL2x7zy1wUfYkq')",
-					zip: '17646',
 				},
 			],
 			{}

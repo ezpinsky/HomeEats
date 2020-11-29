@@ -55,7 +55,7 @@ const generateFakeHomeChefs = async () => {
 	let fakes = [];
 	let fake;
 	for (let i = 0; i < 20; i++) {
-		const user_id = i + 3;
+		const user_id = i + 2;
 		const image = await getImgUrl();
 		const name = restaurantNames[i];
 		const description = faker.lorem.paragraph();
@@ -63,10 +63,19 @@ const generateFakeHomeChefs = async () => {
 		const city = faker.address.city();
 		const zip = faker.address.zipCode().slice(0, 5);
 		const phone = faker.phone.phoneNumberFormat();
-		fake = { user_id, image, description, name, street_address, city, zip, phone };
+		fake = { user_id, image, name, description, street_address, city, zip, phone };
 		fakes.push(fake);
 	}
 	console.log(fakes);
 };
 
 generateFakeHomeChefs();
+
+// user_id: DataTypes.INTEGER,
+// image: DataTypes.TEXT,
+// name: DataTypes.STRING,
+// description: DataTypes.TEXT,
+// street_address: DataTypes.STRING,
+// city: DataTypes.STRING,
+// zip: DataTypes.STRING,
+// phone: DataTypes.STRING,

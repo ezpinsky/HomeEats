@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
 		}
 		static associate(models) {
 			User.belongsTo(models.Home_Chef, { foreignkey: 'user_id' });
-			User.hasMany(Models.Order, { foreignKey: 'user_id' });
+			User.hasMany(models.Order, { foreignKey: 'user_id' });
 		}
 	}
 	User.init(
