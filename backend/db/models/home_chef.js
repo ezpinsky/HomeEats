@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
 	Home_Chef.init(
 		{
 			user_id: DataTypes.INTEGER,
+			image: DataTypes.TEXT,
 			name: DataTypes.STRING,
 			street_address: DataTypes.STRING,
 			city: DataTypes.STRING,

@@ -14,6 +14,11 @@ module.exports = {
 				unique: true,
 				references: { model: 'Users' },
 			},
+			image: {
+				type: Sequelize.TEXT(),
+				unique: false,
+				allowNull: true,
+			},
 			name: {
 				type: Sequelize.STRING(150),
 				unique: true,

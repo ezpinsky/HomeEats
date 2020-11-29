@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../actions/sessionActions';
 
 export default function ProfileButton({ user, home_chef }) {
 	const dispatch = useDispatch();
 	const [showMenu, setShowMenu] = useState(false);
+	const sessionUser = useSelector(state => state.session.user);
+	// make useSeletor for chefinfo
 
 	const openMenu = () => {
 		if (showMenu) return;
@@ -31,8 +33,10 @@ export default function ProfileButton({ user, home_chef }) {
 
 	return (
 		<>
-			<div>
-				<button onClick={openMenu}>Hamburger bars</button>
+			<div className='hamburger-contianer'>
+				<button className='hamburger-button' onClick={openMenu}>
+					<i class='fas fa-bars'></i>
+				</button>
 			</div>
 			{showMenu && (
 				<div className='hamburger-dropdown'>

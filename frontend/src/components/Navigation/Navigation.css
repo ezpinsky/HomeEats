@@ -1,5 +1,6 @@
 nav {
-	margin: 0;
+	position: fixed;
+	top: 0;
 	padding: 0;
 	height: 60px;
 	width: 100%;
@@ -13,26 +14,7 @@ nav {
 .nav-item {
 	width: 300px;
 	display: flex;
-	justify-content: flex-end;
-}
-
-nav a {
-	text-decoration: none;
-}
-
-nav button {
-	margin: 15px 30px;
-	border: none;
-	background-color: white;
-	width: 70px;
-	height: 30px;
-	border-radius: 10px;
-	font-size: 10px;
-	color: #427c4f;
-}
-
-nav li {
-	list-style-type: none;
+	justify-content: center;
 }
 
 .nav-logo {
@@ -41,6 +23,38 @@ nav li {
 	font-family: 'Signika';
 	font-weight: 400;
 	color: white;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+.hamburger-container {
+	width: 300px;
+	display: flex;
+	justify-content: flex-end;
+}
+
+nav button {
+	margin: 15px 15px;
+	border: none;
+	width: 70px;
+	height: 30px;
+	background-color: transparent;
+	color: white;
+	font-size: 30px;
+}
+
+nav button:hover {
+	cursor: pointer;
+}
+
+nav button:active {
+	outline: 0;
+}
+
+nav li {
+	list-style-type: none;
 }
 
 /* .profile-dropdown {
