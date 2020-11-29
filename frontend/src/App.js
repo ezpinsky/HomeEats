@@ -11,6 +11,7 @@ function App() {
 				<Route path='/home-chef/:id' component={HomeChef} />
 				<Route exact path='/' component={Home} />
 				<Route path='/:form' component={SplashPage} /> {/*must be last route*/}
+				<Route path='*' component={SplashPage} />
 			</Switch>
 		</BrowserRouter>
 	);
