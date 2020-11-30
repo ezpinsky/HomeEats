@@ -56,7 +56,7 @@ export default function HomeChef() {
 
 	return (
 		<>
-			<div className='spacer'>sdfg</div>
+			<div className='spacer'></div>
 			<Navigation />
 			<div key={v4()} className='chef-container'>
 				<div className='image-container'>
@@ -66,6 +66,10 @@ export default function HomeChef() {
 					<NavLink to={`/home-chef/${homeChef.id}`}>
 						<h2 className='chef-name'>{homeChef.name}</h2>
 					</NavLink>
+					<div>
+						<span>Phone: {homeChef.phone}</span>
+						<p>Address: {homeChef.street_address}</p>
+					</div>
 					<div className='cuisines'>
 						<span>Cuisines: {cuisines}</span>
 					</div>

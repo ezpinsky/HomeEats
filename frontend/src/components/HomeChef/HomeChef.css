@@ -1,3 +1,15 @@
 .spacer {
 	height: 60px;
 }
+
+.cuisines {
+	font-size: 14px;
+}
+
+.chef-image {
+	width: 200px;
+	height: 200px;
+	vertical-align: middle;
+	margin: 0 20px;
+	border-radius: 3px;
+}

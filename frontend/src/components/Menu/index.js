@@ -6,7 +6,7 @@ export default function Menu({ homeChefId }) {
 	let menus = [{ title: 'lunch' }];
 	return (
 		<>
-			<div className='Menus-container'>
+			{/* <div className='Menus-container'>
 				<h1>Menus</h1>
 				<div className='tabs'>
 					<ul className='tab-header'>
@@ -31,7 +31,7 @@ export default function Menu({ homeChefId }) {
 						</Route>
 					</Switch>
 				</div>
-			</div>
+			</div> */}
 		</>
 	);
 }

@@ -37,7 +37,6 @@
 .description p {
 	margin: 0;
 }
-
 .chef-container:nth-child(odd) {
 	background-color: #427c4e15;
 }
@@ -65,7 +64,7 @@ h1 {
 	padding: 20px;
 	width: 700px;
 }
-::placeholder {
+.search-container ::placeholder {
 	color: black;
 	/* text-align: center; */
 }
