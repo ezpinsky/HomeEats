@@ -46,8 +46,8 @@ const restaurantNames = [
 	'Whispering Bamboo',
 ];
 
-async function getImgUrl() {
-	let res = await fetch('https://loremflickr.com/320/240/house');
+async function getImgUrl(param) {
+	let res = await fetch(`https://loremflickr.com/320/240/${param}`);
 	return res.url;
 }
 
@@ -56,9 +56,9 @@ const generateFakeHomeChefs = async () => {
 	let fake;
 	for (let i = 0; i < 20; i++) {
 		const user_id = i + 2;
-		const image = await getImgUrl();
+		const image = await getImgUrl('food');
 		const name = restaurantNames[i];
-		const description = faker.lorem.paragraphs();
+		const description = faker.lorem.paragraph() + faker.lorem.paragraph();
 		const street_address = faker.address.streetAddress();
 		const city = faker.address.city();
 		const zip = faker.address.zipCode().slice(0, 5);
@@ -69,13 +69,65 @@ const generateFakeHomeChefs = async () => {
 	console.log(fakes);
 };
 
-generateFakeHomeChefs();
+// generateFakeHomeChefs();
 
-// user_id: DataTypes.INTEGER,
-// image: DataTypes.TEXT,
-// name: DataTypes.STRING,
-// description: DataTypes.TEXT,
-// street_address: DataTypes.STRING,
-// city: DataTypes.STRING,
-// zip: DataTypes.STRING,
-// phone: DataTypes.STRING,
+const generateFakeMenus = async () => {
+	let fakes = [];
+	let menuNames = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Catering'];
+	let eats = ['Delivery', 'Dine-in', 'Pick-up', 'Ship'];
+	let fake;
+	for (let i = 0; i < 20; i++) {
+		const name = menuNames[Math.floor(Math.random() * 5)];
+		const home_chef_id = i + 2;
+		let eat_options = [];
+		for (let y = 0; y < 2; y++) {
+			let eat = eats[Math.floor(Math.random() * 4)];
+			if (eat_options.indexOf(eat) === -1) {
+				eat_options.push(eat);
+			}
+		}
+		fake = { home_chef_id, name, eat_options };
+		fakes.push(fake);
+	}
+	console.log(fakes);
+};
+
+// generateFakeMenus();
+let cusineList = [
+	'Peruvian',
+	'Pizzeria',
+	'Chinese',
+	'Asian',
+	'Japanese',
+	'Mexican',
+	'Fast Food',
+	'BBQ',
+	'Mediterranean',
+	'Bakery',
+	'Steakhouse',
+	'Indian',
+	'Italian',
+	'Thai',
+	'French',
+];
+const generateFakeCuisines = () => {
+	let fakes = [];
+	for (let x = 0; x < cusineList.length - 1; x++) {
+		fakes.push({ name: cusineList[x] });
+	}
+	console.log(fakes);
+};
+
+// generateFakeCuisines();
+
+const generateFakeHomeChefCuisines = () => {
+	let fakes = [];
+	for (i = 1; i < 21; i++) {
+		const n = Math.floor(Math.random() * 4 + 1);
+		for (l = 0; l < n; l++) {
+			fakes.push({ cuisine_id: Math.floor(Math.random() * (12 + 1)), home_chef_id: i });
+		}
+	}
+	console.log(fakes);
+};
+generateFakeHomeChefCuisines();

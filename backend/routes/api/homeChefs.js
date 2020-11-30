@@ -1,7 +1,7 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { Home_Chef } = require('../../db/models');
-
+const { default: Home } = require('../../../frontend/src/components/Home');
+const { Home_Chef, Cuisine, Home_Chef_Cuisine } = require('../../db/models');
 const router = express.Router();
 
 router.get(
@@ -21,6 +21,18 @@ router.post(
 				id: homeChefId,
 			},
 		});
+
+		// const cuisines = await Cuisine.findByPk(homeChefId, {
+		// 	include: [
+		// 		{
+		// 			model: Home_Chef,
+		// 			as: 'Home_Chef',
+		// 			attributes: ['name'],
+		// 			through: { attributes: ['home_chef_id', 'cuisine_id'] },
+		// 		},
+		// 	],
+		// });
+		// console.log(cuisines);
 		return res.json(chefInfo);
 	})
 );

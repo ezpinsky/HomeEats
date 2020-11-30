@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
 		{
 			home_chef_id: DataTypes.INTEGER,
 			name: DataTypes.STRING,
-			eat_options: DataTypes.ARRAY(DataTypes.TEXT),
+			eat_options: DataTypes.ARRAY(DataTypes.STRING),
 		},
 		{
 			sequelize,

@@ -19,7 +19,7 @@ module.exports = {
 			},
 			eat_options: {
 				allowNull: false,
-				type: Sequelize.ARRAY(Sequelize.TEXT),
+				type: Sequelize.ARRAY(Sequelize.STRING(40)),
 			},
 			createdAt: {
 				allowNull: false,
