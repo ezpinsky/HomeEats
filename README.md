@@ -20,11 +20,11 @@ HomeEats is an online food marketplace modeled on etsy.com, where users can buy 
 
 ## Application Architecture and Technologies Used
 
-HomeEats was built with a frontend server that that communicates via RESTful APIs with a backend server.
+HomeEats was built with a frontend server using React and Redux that that communicates via RESTful APIs with a backend express server.
 
 The backend server was created using the Express NodeJS framework. The express server makes use of a PostgreSQL database to store all data and uses [Sequelize ORM](https://sequelize.org/) to create relationships between data points for easy data retrieval. The application uses [csurf](https://www.npmjs.com/package/csurf) and [JWT](https://www.npmjs.com/package/jsonwebtoken) (Jason Web Token) to maintain user sessions and the security of the API.
 
-The frontend user interface was created using [react](https://www.npmjs.com/package/react) and [redux](https://www.npmjs.com/package/redux) with jsx and vanilla CSS.
+The frontend user interface was created using [react](https://www.npmjs.com/package/react) and [redux](https://www.npmjs.com/package/redux) as well ass styled with vanilla CSS.
 
 ## Frontend Overview
 
@@ -32,33 +32,19 @@ HomeEats is a CRUD platform, utilizing react and redux to create a single page a
 
 ### React and Redux
 
-The most challenging and satisfying aspect of this project was implementing react and redux to create a store for global state that each react component could access and use to update the page without refreshing. I utilized react hooks to implement seamless feature interaction for the user.
-
-Here is a code snippet of a particularly difficult thunk action 'thunk action name':
-
-```js
-("example of code snippet)
-```
-
-Here is a code snippet of a different particularly difficult thing:
-
-```js
-("example of code snippet)
-```
+The most challenging and satisfying aspect of this project was the difficult plunge into organizing and implementing the data flow from react and redux to the express server. Persisting data using the redux store  with react hooks and allowing dynamic updates to the page without refreshing was tricky but gives the app a polished and smooth feel.
 
 ## Backend Overview
 
 ### ^look at backend project for inspiration for what to write here.^
 
-To render the information we needed on the frontend, we used various RESTful APIs to query for relevant data pertaining to the user and the story. We utilized Sequelize ORM to generate different tables for our data and created joined tables and foreign key constraints to connect them.
+To render the correct information I needed for the redux store, I used various RESTful APIs to sequrely query the express server for relevant data. I utilized Sequelize ORM to generate the database tables using join tables and foreign key constraints to associate where necessary.
 
 ### Authentication and Application Security
 
-### ^look at project for what was used here.^
+For authentication, I used the redux store and react hooks to authenticate and restore the user. If a user is not logged on they will be redirected to the splash page to login or signup. i user that was logged in previously can still access the app without loggin in again if the cookie has not expired. 
 
-For authentication, we used the express-session library in order to determine that a user was logged in, and if not, redirect him/her to the login page.
-
-For application security, we used the csurf and cookie-parser packages that generated a token that was passed through each form submission for validation. We used bcrypt hashing library in order to encrypt our users' password and protect their privacy.
+The application uses csrf cookies and JSON Web Tokens for secure access to the app. I used bcrypt hashing in order to encrypt user credentials to protect the apps integrity.
 
 ### Relational Database Design
 
@@ -74,7 +60,7 @@ This is the database schema:
 - The Favorite_Home_Chef and Review tables are created for future implementation
 ## Conclusion & Stretch Goals
 
-This was my first solo and first react and redux full-stack application. It was extremely challenging and pusehd me to work relentlessly in order to complete this project in only 4 days. Creating HomeEats has cemented my knowlegde of React and Redux using hooks with the store and dramatically increased my css understanding. Being that I had limited time to complete this porject there are still many features that I would like to implement and hopefully one day launch HomeEats with.
+This was my first solo using react and redux to build a full-stack application from front-end to back-end. It was extremely challenging and pushed me to work relentlessly in order to complete this project in limited time. Creating HomeEats has cemented my knowlegde of React and Redux using hooks with the store and dramatically increased my css understanding. But in truth no project is ever finished. Projects and ideas grow and mutate to become something that they were not inittialy vizualized as, and I still have many features that I would like to implement and hopefully one day commericialy with.
 
 - Users can leave reviews and rate items
 - Users can favorite Home Chefs
