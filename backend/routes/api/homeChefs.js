@@ -12,4 +12,17 @@ router.get(
 	})
 );
 
+router.post(
+	'/',
+	asyncHandler(async (req, res, next) => {
+		const { homeChefId } = req.body;
+		const chefInfo = await Home_Chef.findOne({
+			where: {
+				id: homeChefId,
+			},
+		});
+		return res.json(chefInfo);
+	})
+);
+
 module.exports = router;

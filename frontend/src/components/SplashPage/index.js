@@ -29,7 +29,6 @@ export default function SplashPage() {
 	const handleClick = e => {
 		e.preventDefault();
 		setLoginForm(!loginForm);
-		console.log(form);
 		return <Redirect to={`/${form}`} />;
 	};
 

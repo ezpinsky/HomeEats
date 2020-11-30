@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { v4 } from 'uuid';
-import * as homeChefsListActions from '../../actions/homeChefListActions';
+import * as homeChefsListActions from '../../actions/homeChefActions';
 
 export default function HomeChefList() {
 	const dispatch = useDispatch();
@@ -23,7 +23,7 @@ export default function HomeChefList() {
 	};
 
 	const handleChange = e => {
-		setInputVal(e.target.value);
+		setInputVal(e.target.name);
 	};
 
 	const [matches, setMatches] = useState(homeChefsList);
@@ -36,24 +36,22 @@ export default function HomeChefList() {
 	}, [inputVal, homeChefsList]);
 
 	let chefList = matches.map(chef => (
-		<>
-			<div key={v4()} className='chef-container'>
-				<div className='image-container'>
-					<img src={`${chef.image}`} alt='home chef' className='chef-image' />
+		<div key={v4()} className='chef-container'>
+			<div className='image-container'>
+				<img src={`${chef.image}`} alt='home chef' className='chef-image' />
+			</div>
+			<div className='chef-content-container'>
+				<NavLink to={`/home-chef/${chef.id}`}>
+					<h2 className='chef-name'>{chef.name}</h2>
+				</NavLink>
+				<div className='cuisines'>
+					<span>Cuisines:</span>
 				</div>
-				<div className='chef-content-container'>
-					<NavLink to={`/home-chef/${chef.id}`}>
-						<h2 className='chef-name'>{chef.name}</h2>
-					</NavLink>
-					<div className='cuisines'>
-						<span>Cuisines:</span>
-					</div>
-					<div className='description'>
-						<p>{chef.description}</p>
-					</div>
+				<div className='description'>
+					<p>{chef.description}</p>
 				</div>
 			</div>
-		</>
+		</div>
 	));
 
 	if (!isLoaded) return <p>Loading...</p>;

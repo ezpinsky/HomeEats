@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
-const homeChefsListRouter = require('./homeChefsList.js');
+const homeChefsListRouter = require('./homeChefs.js');
+const homeChefsRouter = require('./homeChefs.js');
 
 router.post('/test', function (req, res) {
 	res.json({ requestBody: req.body });
@@ -11,7 +12,7 @@ router.use('/session', sessionRouter);
 
 router.use('/users', usersRouter);
 
-router.use('/homeChefsList', homeChefsListRouter);
+router.use('/homeChefs', homeChefsRouter);
 
 module.exports = router;
 

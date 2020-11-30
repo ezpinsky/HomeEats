@@ -1,8 +1,10 @@
 import { fetch } from '../store/csrf';
+// const fetch = require('fetch');
 
 export const HOME_CHEF_LIST = 'HOME_CHEF_LIST';
 export const HOME_CHEF_LIST_LOADING = 'HOME_CHEF_LIST_LOADING';
 export const HOME_CHEF_LIST_ERROR = 'HOME_CHEF_LIST_ERROR';
+export const HOME_CHEF_INFO = 'HOME_CHEF_INFO';
 
 export const getHomeChefsListLoading = () => {
 	return {
@@ -27,13 +29,29 @@ export const getHomeChefsListError = error => {
 export function getHomeChefsList() {
 	return async dispatch => {
 		dispatch(getHomeChefsListLoading());
-		const res = await fetch('/api/homeChefsList');
+		const res = await fetch('/api/homeChefs');
 		dispatch(getHomeChefsListSuccess(res.data));
 		return res.data;
 	};
 }
 
-//home-chef-page
+export const getHomeChefInfoSuccess = homeChefInfo => {
+	return {
+		type: HOME_CHEF_INFO,
+		homeChefInfo: homeChefInfo,
+	};
+};
+
+export function getHomeChefInfo(homeChefId) {
+	return async dispatch => {
+		const res = await fetch('/api/homeChefs', {
+			method: 'POST',
+			body: JSON.stringify({ homeChefId }),
+		});
+		dispatch(getHomeChefInfoSuccess(res.data));
+		return res.data;
+	};
+}
 
 //menu
 

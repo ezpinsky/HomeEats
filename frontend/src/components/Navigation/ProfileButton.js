@@ -9,7 +9,6 @@ export default function ProfileButton() {
 	const user = useSelector(state => state.session.user);
 
 	// make useSeletor for chefinfo
-	console.log(user);
 	const openMenu = () => {
 		if (showMenu) return;
 		setShowMenu(true);
