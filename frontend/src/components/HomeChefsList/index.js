@@ -23,7 +23,8 @@ export default function HomeChefList() {
 	};
 
 	const handleChange = e => {
-		setInputVal(e.target.name);
+		console.log(e.target.value);
+		setInputVal(e.target.value);
 	};
 
 	const [matches, setMatches] = useState(homeChefsList);

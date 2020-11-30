@@ -85,7 +85,7 @@ input {
 input:focus {
 	outline: none;
 	/* background-color: rgba(161, 201, 171, 0.801); */
-	border-radius: 3px;
+	/* border-radius: 3px; */
 }
 
 input:focus::placeholder {
