@@ -37,6 +37,7 @@
 .description p {
 	margin: 0;
 }
+
 .chef-container:nth-child(odd) {
 	background-color: #427c4e15;
 }

@@ -23,7 +23,7 @@ module.exports = {
 					email: 'hodayahb@gmail,com',
 					zip: 33180,
 					hashed_pass: bcrypt.hashSync('password'),
-					HomeChefId: 0,
+					HomeChefId: 1,
 				},
 				{
 					email: 'Evangeline.Dicki@hotmail.com',
@@ -31,7 +31,6 @@ module.exports = {
 					last_name: 'Swift',
 					hashed_pass: "bcrypt.hashSync('AuYzaDg7rb8RJ0q')",
 					zip: '01271',
-					HomeChefId: 1,
 				},
 				{
 					email: 'Moshe44@yahoo.com',
