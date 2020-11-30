@@ -8,7 +8,8 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	padding: 20px;
+	padding: 30px;
+	margin: 0 70px;
 }
 .chef-container a {
 	text-decoration: none;
@@ -20,13 +21,73 @@
 	color: #427c4f;
 }
 
-.chef-container:nth-child(odd) {
-	background-color: lightgrey;
+.chef-name {
+	margin-left: 18px;
 }
 
+.cuisines {
+	font-style: italic;
+}
+
+.chef-content-container div {
+	margin: 20px;
+	border-radius: 3px;
+}
+
+.description p {
+	margin: 0;
+}
+
+.chef-container:nth-child(odd) {
+	background-color: #427c4e15;
+}
 .chef-image {
-	width: 50px;
-	height: 50px;
+	width: 150px;
+	height: 150px;
 	vertical-align: middle;
-	border-radius: 50%;
+	margin: 0 20px;
+	border-radius: 3px;
+}
+
+h1 {
+	font-size: 50px;
+	color: black;
+}
+
+.search-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* justify-items: space-evenly; */
+	/* background-color: rgba(161, 201, 171, 0.801); */
+	border-radius: 5px;
+	margin: 40px;
+	padding: 20px;
+	width: 700px;
+}
+::placeholder {
+	color: black;
+	/* text-align: center; */
+}
+
+input {
+	border: none;
+	border-bottom: thin solid #427c4f;
+	border-radius: 0;
+	background-color: transparent;
+	color: black;
+	height: 30px;
+	width: 600px;
+	margin: 30px;
+	/* text-align: center; */
+}
+
+input:focus {
+	outline: none;
+	/* background-color: rgba(161, 201, 171, 0.801); */
+	border-radius: 3px;
+}
+
+input:focus::placeholder {
+	color: transparent;
 }

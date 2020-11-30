@@ -58,7 +58,7 @@ const generateFakeHomeChefs = async () => {
 		const user_id = i + 2;
 		const image = await getImgUrl();
 		const name = restaurantNames[i];
-		const description = faker.lorem.paragraph();
+		const description = faker.lorem.paragraphs();
 		const street_address = faker.address.streetAddress();
 		const city = faker.address.city();
 		const zip = faker.address.zipCode().slice(0, 5);

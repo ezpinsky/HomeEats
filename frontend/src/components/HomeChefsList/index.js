@@ -16,25 +16,68 @@ export default function HomeChefList() {
 
 	const { homeChefsList } = useSelector(state => state.homeChefs);
 
-	let chefsList = homeChefsList.map(chef => (
-		<div key={v4()} className='chef-container'>
-			<div className='image-container'>
-				<img src={`${chef.image}`} alt='home chef' className='chef-image' />
+	const [inputVal, setInputVal] = useState('');
+
+	const handleClick = e => {
+		setInputVal(e.target.innerText);
+	};
+
+	const handleChange = e => {
+		setInputVal(e.target.value);
+	};
+
+	const [matches, setMatches] = useState(homeChefsList);
+
+	useEffect(() => {
+		const matchedResults = homeChefsList.filter(chef =>
+			chef.name.toLowerCase().startsWith(inputVal.toLowerCase())
+		);
+		setMatches(matchedResults);
+	}, [inputVal, homeChefsList]);
+
+	let chefList = matches.map(chef => (
+		<>
+			<div key={v4()} className='chef-container'>
+				<div className='image-container'>
+					<img src={`${chef.image}`} alt='home chef' className='chef-image' />
+				</div>
+				<div className='chef-content-container'>
+					<NavLink to={`/home-chef/${chef.id}`}>
+						<h2 className='chef-name'>{chef.name}</h2>
+					</NavLink>
+					<div className='cuisines'>
+						<span>Cuisines:</span>
+					</div>
+					<div className='description'>
+						<p>{chef.description}</p>
+					</div>
+				</div>
 			</div>
-			<NavLink to={`/home-chef/${chef.id}`}>
-				<div className='chef-list-item'>{chef.name}</div>
-			</NavLink>
-		</div>
+		</>
 	));
-	console.log(chefsList);
 
 	if (!isLoaded) return <p>Loading...</p>;
+
+	if (!matches.length) chefList = <h2>No Results Found</h2>;
+
 	return (
 		<>
 			<div className='list-container'>
 				<div className='chef-list-container'>
-					<h2>Find a Home Chef</h2>
-					<div className='chef-list-items-container'>{chefsList}</div>
+					<div className='search-container'>
+						<div>
+							<h1>Find a Home Chef</h1>
+						</div>
+						<div>
+							<input
+								className='auto-input'
+								value={inputVal}
+								placeholder='search'
+								onChange={handleChange}
+							/>
+						</div>
+					</div>
+					{<div className='chef-list-items-container'>{chefList}</div>}
 				</div>
 			</div>
 		</>
