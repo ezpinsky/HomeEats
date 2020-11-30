@@ -1,0 +1,61 @@
+.Menu-container {
+	display: flex;
+	justify-content: center;
+}
+.tab-header {
+	margin: 0 20px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.tab-header > li {
+	width: 40px%;
+	border-top: 2px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 2px solid black;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	text-align: center;
+	cursor: pointer;
+	background-color: #427c4f;
+}
+
+a {
+	padding: 5px;
+	display: block;
+}
+
+.tab-header > li:first-child {
+	border-left: 2px solid black;
+}
+
+.tab-header > li:last-child {
+	border-right: 2px solid black;
+}
+
+.tab-header > li:hover {
+	background-color: blue;
+	color: white;
+}
+
+.tab-header > li > a.active {
+	font-weight: bold;
+}
+
+.tabs {
+	width: 240px;
+}
+
+.tab-content {
+	font-weight: bold;
+	color: white;
+	height: 192px;
+	margin: 0 20px;
+	border-left: 2px solid black;
+	border-bottom: 2px solid black;
+	border-right: 2px solid black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

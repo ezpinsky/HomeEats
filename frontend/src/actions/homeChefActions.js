@@ -5,6 +5,7 @@ export const HOME_CHEF_LIST = 'HOME_CHEF_LIST';
 export const HOME_CHEF_LIST_LOADING = 'HOME_CHEF_LIST_LOADING';
 export const HOME_CHEF_LIST_ERROR = 'HOME_CHEF_LIST_ERROR';
 export const HOME_CHEF_INFO = 'HOME_CHEF_INFO';
+export const HOME_CHEF_CUISINES = 'HOME_CHEF_CUISINES';
 
 export const getHomeChefsListLoading = () => {
 	return {
@@ -49,6 +50,25 @@ export function getHomeChefInfo(homeChefId) {
 			body: JSON.stringify({ homeChefId }),
 		});
 		dispatch(getHomeChefInfoSuccess(res.data));
+		return res.data;
+	};
+}
+
+export const getHomeChefCuisinesSuccess = homeChefCuisines => {
+	return {
+		type: HOME_CHEF_CUISINES,
+		homeChefCuisines: homeChefCuisines,
+	};
+};
+
+export function getHomeChefCuisines(homeChefId) {
+	return async dispatch => {
+		const res = await fetch('/api/homeChefs/cuisines', {
+			method: 'POST',
+			body: JSON.stringify({ homeChefId }),
+		});
+		console.log(res.data);
+		dispatch(getHomeChefCuisinesSuccess(res.data));
 		return res.data;
 	};
 }

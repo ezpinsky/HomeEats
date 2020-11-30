@@ -20,19 +20,21 @@ router.post(
 				id: homeChefId,
 			},
 		});
-
-		// const cuisines = await Cuisine.findByPk(homeChefId, {
-		// 	include: [
-		// 		{
-		// 			model: Home_Chef,
-		// 			as: 'Home_Chef',
-		// 			attributes: ['name'],
-		// 			through: { attributes: ['home_chef_id', 'cuisine_id'] },
-		// 		},
-		// 	],
-		// });
-		// console.log(cuisines);
 		return res.json(chefInfo);
+	})
+);
+
+router.post(
+	'/cuisines',
+	asyncHandler(async (req, res, next) => {
+		const { homeChefId } = req.body;
+		const homeChefCuisines = await Home_Chef_Cuisine.findAll({
+			where: {
+				home_chef_id: homeChefId,
+			},
+		});
+
+		return res.json(homeChefCuisines);
 	})
 );
 

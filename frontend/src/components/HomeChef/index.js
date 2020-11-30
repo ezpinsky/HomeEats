@@ -4,8 +4,27 @@ import { useParams } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { v4 } from 'uuid';
 import Navigation from '../Navigation';
+import Menu from '../Menu';
 import * as homeChefActions from '../../actions/homeChefActions';
 import './HomeChef.css';
+
+let cuisineList = [
+	'Peruvian',
+	'Pizzeria',
+	'Chinese',
+	'Asian',
+	'Japanese',
+	'Mexican',
+	'Fast Food',
+	'BBQ',
+	'Mediterranean',
+	'Bakery',
+	'Steakhouse',
+	'Indian',
+	'Italian',
+	'Thai',
+	'French',
+];
 
 export default function HomeChef() {
 	const dispatch = useDispatch();
@@ -19,8 +38,21 @@ export default function HomeChef() {
 		setIsLoaded(true);
 	}, [dispatch, homeChefId]);
 
-	const { homeChefsList } = useSelector(state => state.homeChefs);
+	useEffect(() => {
+		dispatch(homeChefActions.getHomeChefCuisines(homeChefId));
+		setIsLoaded(true);
+	}, [dispatch, homeChefId]);
+
+	let cuisines;
 	const homeChef = useSelector(state => state.homeChefs.homeChef);
+	const homeChefCuisines = useSelector(state => state.homeChefs.homeChefCuisines);
+
+	try {
+		let cuisineIds = homeChefCuisines.map(cuisine => cuisineList[cuisine.cuisine_id]);
+		cuisines = cuisineIds.join(', ');
+	} catch (e) {
+		console.error(e);
+	}
 
 	return (
 		<>
@@ -35,13 +67,14 @@ export default function HomeChef() {
 						<h2 className='chef-name'>{homeChef.name}</h2>
 					</NavLink>
 					<div className='cuisines'>
-						<span>Cuisines:</span>
+						<span>Cuisines: {cuisines}</span>
 					</div>
 					<div className='description'>
 						<p>{homeChef.description}</p>
 					</div>
 				</div>
 			</div>
+			<Menu homeChefId={homeChef.id} />
 		</>
 	);
 }

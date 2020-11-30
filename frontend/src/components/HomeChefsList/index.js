@@ -44,8 +44,8 @@ export default function HomeChefList() {
 				<NavLink to={`/home-chef/${chef.id}`}>
 					<h2 className='chef-name'>{chef.name}</h2>
 				</NavLink>
-				<div className='cuisines'>
-					<span>Cuisines:</span>
+				<div className='city'>
+					<span>Location: {chef.city}</span>
 				</div>
 				<div className='description'>
 					<p>{chef.description}</p>
