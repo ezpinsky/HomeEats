@@ -1,6 +1,5 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { default: Home } = require('../../../frontend/src/components/Home');
 const { Home_Chef, Cuisine, Home_Chef_Cuisine } = require('../../db/models');
 const router = express.Router();
 
