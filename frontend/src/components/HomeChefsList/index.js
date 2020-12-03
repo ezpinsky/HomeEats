@@ -55,7 +55,7 @@ export default function HomeChefList() {
 		</div>
 	));
 
-	if (!isLoaded) return <p>Loading...</p>;
+	if (!isLoaded) return <p>Loading...</p>; // add loading circle thingy <div> </div> here
 
 	if (!matches.length) chefList = <h2>No Results Found</h2>;
 

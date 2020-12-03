@@ -1,5 +1,5 @@
 nav {
-	position: fixed;
+	position: sticky;
 	top: 0;
 	padding: 0;
 	height: 60px;
@@ -99,7 +99,8 @@ nav a {
 	margin: 7px 0;
 }
 
-nav .hamburger-button {
+.hamburger-button {
+	box-sizing: border-box;
 	outline: 0;
 	margin: 15px 0px;
 	border: none;

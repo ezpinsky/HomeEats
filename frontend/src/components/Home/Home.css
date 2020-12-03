@@ -1,6 +1,3 @@
-body {
-}
-
 .main-content {
 	height: 100%;
 }
@@ -12,7 +9,7 @@ body {
 	/* text-shadow: 0 1px 4px black; */
 	position: absolute;
 	left: 220px;
-	top: 150px;
+	top: 100px;
 }
 
 .banner-image {
@@ -20,7 +17,7 @@ body {
 	position: relative;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 		url('./kitchen-banner.jpg');
-	height: 200px;
+	height: 150px;
 	background-size: 1920px 700px;
 	background-position: center;
 	background-repeat: no-repeat;

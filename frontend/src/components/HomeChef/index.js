@@ -56,7 +56,7 @@ export default function HomeChef() {
 
 	return (
 		<>
-			<div className='spacer'></div>
+			{/* <div className='spacer'></div> */}
 			<Navigation />
 			<div key={v4()} className='chef-container'>
 				<div className='image-container'>

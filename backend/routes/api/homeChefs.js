@@ -32,6 +32,7 @@ router.post(
 			where: {
 				home_chef_id: homeChefId,
 			},
+			includes: { model: 'Cuisine' },
 		});
 
 		return res.json(homeChefCuisines);
